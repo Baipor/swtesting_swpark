@@ -66,5 +66,14 @@ public class CircularBufferTest {
         circularBuffer.add("C");
         assertTrue(circularBuffer.isFull());
     }
+    
+    @Test
+    public void bufferFull2() {
+        CircularBuffer circularBuffer = new CircularBuffer(3);
+        circularBuffer.add("A");
+        circularBuffer.add("B");
+        circularBuffer.add("C");
+        assertTrue(circularBuffer.isFull());
+    }
 
 }
