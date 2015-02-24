@@ -2,6 +2,9 @@ package swtesting;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class CircularBufferTest {
@@ -72,7 +75,49 @@ public class CircularBufferTest {
         CircularBuffer circularBuffer = new CircularBuffer(3);
         circularBuffer.add("A");
         circularBuffer.add("B");
+        circularBuffer.add("C");
         assertTrue(circularBuffer.isFull());
+    }
+    
+    @Test
+    public void xxx() throws Exception {
+        DAO stub = new DAO() {
+            public List<String> get(int i) {
+                List<String> z = new ArrayList<String>();
+                z.add("dd");
+                return z;
+            }
+        };
+        
+        CircularBuffer circularBuffer = new CircularBuffer(3);
+        circularBuffer.setDAO(stub);
+        circularBuffer.xxx();
+    }
+    
+    @Test
+    public void yyy() throws Exception {
+        DAO mock = new DAO() {
+            boolean isCAll = false;
+            public List<String> get(int i) {
+                List<String> z = new ArrayList<String>();
+                z.add("dd");
+                return z;
+            }
+            
+            public void ok() {
+                isCAll = true;
+            }
+            
+            public boolean isCall() {
+                return isCAll;
+            }
+
+        };
+        
+        CircularBuffer circularBuffer = new CircularBuffer(3);
+        circularBuffer.setDAO(mock);
+        circularBuffer.xxx();
+        assertTrue(mock.isCall());
     }
 
 }

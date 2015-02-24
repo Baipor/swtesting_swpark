@@ -1,5 +1,7 @@
 package swtesting;
 
+import java.util.List;
+
 public class CircularBuffer {
 
     String[] buffer;
@@ -33,5 +35,27 @@ public class CircularBuffer {
     public int size() {
         return buffer.length;
     }
+    
+    DAO dao;
+    public void setDAO(DAO dao) {
+        this.dao = dao;
+    }
+    
+    public DAO getDAO() {
+        if(this.dao == null) {
+            return new DAO();
+        }
+        return this.dao;
+    }
+    
+    public void xxx() {
+        List<String> result = getDAO().get(1);
+        if( !result.isEmpty() ) {
+            getDAO().ok();
+        } else {
+            result = dao.get(2);
+        }
+    }
+    
 
 }
