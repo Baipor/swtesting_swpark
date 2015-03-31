@@ -44,4 +44,16 @@ public class FizzBuzzTest {
         assertEquals("FizzBuzz", actualResult);
     }
     
+    @Test
+    public void shouldSayFizzBuzzWhenNumberIsFifteen2() {
+        String actualResult = fizzBuzz.say(15);
+        assertEquals("FizzBuzz", actualResult);
+    }
+    
+    @Test
+    public void shouldSayFizzBuzzWhenNumberIsFifteen3() {
+        String actualResult = fizzBuzz.say(15);
+        assertEquals("FizzBuzz", actualResult);
+    }
+    
 }
